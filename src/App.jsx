@@ -1,30 +1,17 @@
-import { useState } from "react";
-import "./App.css";
-
-import PropTypes from "prop-types";
-
-const Card = ({ title }) => {
-  const [hasLiked, setHasLiked] = useState(false);
-  return (
-    <div className="card">
-      <h2>{title}</h2>
-      <button onClick={() => setHasLiked(!hasLiked)}>
-        {hasLiked ? "❤️" : "🤍"}
-      </button>
-    </div>
-  );
-};
-Card.propTypes = {
-  title: PropTypes.string.isRequired,
-};
-
 const App = () => {
   return (
-    <div className="card-container">
-      <Card title="Star Wars" />
-      <Card title="Avatar" />
-      <Card title="The Lion King" />
-    </div>
+    <main>
+      <div className="pattern" />
+      <div className="wrapper">
+        <header>
+          <img src="./hero.png" alt="Hero Banner" />
+          <h1>
+            Find <span className="text-gradient">Movies</span> You Will Enjoy
+            Without the Hassle
+          </h1>
+        </header>
+      </div>
+    </main>
   );
 };
 
