@@ -1,9 +1,8 @@
 const MovieCard = ({ show }) => {
   return (
-    <div>
+    <div className="movie-card">
       <img src={show.image.medium} alt={show.name} />
       <h2>{show.name}</h2>
-      <p>{show.summary}</p>
     </div>
   );
 };
