@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import Search from "./components/Search";
+import Spinner from "./components/Spinner";
+import MovieCard from "./components/MovieCard";
 
 const API_BASE_URL = "https://api.tvmaze.com/shows";
 
@@ -50,21 +52,22 @@ const App = () => {
         </header>
       </div>
       {isLoading ? (
-        <p className="text-white">Loading...</p>
+        <Spinner />
       ) : error ? (
         <p className="text-red-500">{error}</p>
       ) : shows.length === 0 ? (
         <p>No shows found</p>
       ) : (
-        <ul>
+        <div className="flex flex-wrap -mx-3">
           {shows.map((show) => (
-            <li key={show.id}>
-              <img src={show.image.medium} alt={show.name} />
-              <h2>{show.name}</h2>
-              <p>{show.summary}</p>
-            </li>
+            <div
+              key={show.id}
+              className=" text-white w-full sm:w-1/2 md:w-1/3 lg:w-1/3 xl:w-1/5 p-4"
+            >
+              <MovieCard show={show} />
+            </div>
           ))}
-        </ul>
+        </div>
       )}
     </main>
   );
