@@ -58,11 +58,16 @@ const App = () => {
       ) : shows.length === 0 ? (
         <p>No shows found</p>
       ) : (
-        <ul>
+        <div className="flex flex-wrap -mx-4">
           {shows.map((show) => (
-            <MovieCard key={show.id} show={show} />
+            <div
+              key={show.id}
+              className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-4"
+            >
+              <MovieCard show={show} />
+            </div>
           ))}
-        </ul>
+        </div>
       )}
     </main>
   );
